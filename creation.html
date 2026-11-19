@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Création</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Gabarit unique des Créations Yelema. L'habillage vient de l'entreprise : --c (couleur principale), logo, nom.
+   Tout le reste (police, gris, couleurs d'état) reste celui de Yelema. */
+:root{--c:#E5004A;--c-ink:color-mix(in srgb,var(--c) 70%,#000);--c-50:color-mix(in srgb,var(--c) 7%,#fff);--c-100:color-mix(in srgb,var(--c) 16%,#fff);--c-300:color-mix(in srgb,var(--c) 45%,#fff);
+--ink:#16141F;--ink2:#5B5868;--ink3:#8B8898;--line:#ECEAF0;--bg:#F7F6F9;--ok:#1F9D55;--ok-50:#E7F6ED;--bad:#C2410C;--bad-50:#FDEEE6;--warn:#B7791F;--warn-50:#FDF4E3}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--bg);font-size:14px;line-height:1.45}
+.i{width:16px;height:16px;vertical-align:-3px;opacity:.75}
+h1,h2,.num{font-family:'Space Grotesk',sans-serif}
+.wrap{max-width:1180px;margin:0 auto;padding:0 32px}
+/* barre de marque */
+.brand{background:#fff;border-bottom:1px solid var(--line)}
+.brand .wrap{display:flex;align-items:center;gap:12px;height:64px}
+.logo{height:34px;display:flex;align-items:center}.logo img{height:100%;max-width:150px;object-fit:contain}
+.brand b{font-size:15px}.brand .sp{margin-left:auto;display:flex;gap:8px}
+.btn{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px 14px;font-size:13px;font-weight:500;color:var(--ink);white-space:nowrap}
+.btn.pri{background:var(--c);border-color:var(--c);color:#fff;font-weight:600}.btn.pri .i{filter:brightness(0) invert(1);opacity:1}
+/* en-tête */
+.hero{background:linear-gradient(180deg,var(--c-50),var(--bg));padding:28px 0 8px}
+.hero h1{font-size:32px;font-weight:600;letter-spacing:-.01em}
+.hero p{color:var(--ink2);margin-top:4px}
+.meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.chip{display:inline-flex;gap:6px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:99px;padding:4px 10px;font-size:12px;color:var(--ink2)}
+.chip img.av{width:18px;height:18px;border-radius:50%;object-fit:cover}
+.seg{display:flex;gap:6px;margin:18px 0 4px;flex-wrap:wrap}
+.seg span{border:1px solid var(--line);background:#fff;border-radius:9px;padding:6px 12px;font-size:13px}
+.seg span.on{background:var(--c);border-color:var(--c);color:#fff;font-weight:600}
+/* blocs */
+.sec{margin-top:18px}
+.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 20px}
+.card h2{font-size:16px;font-weight:600;margin-bottom:12px;display:flex;gap:8px;align-items:center}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.kpi{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px;position:relative;overflow:hidden}
+.kpi::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--c)}
+.kpi small{color:var(--ink2);font-size:12px}
+.kpi .num{font-size:28px;font-weight:600;margin-top:4px;display:block}
+.kpi em{font-style:normal;font-size:12px;font-weight:600}
+.up{color:var(--ok)}.down{color:var(--bad)}.flat{color:var(--ink3)}
+.grid2{display:grid;grid-template-columns:1.6fr 1fr;gap:14px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{text-align:left;color:var(--ink3);font-weight:500;padding:7px 6px;border-bottom:1px solid var(--line);font-size:12px}
+td{padding:9px 6px;border-bottom:1px solid var(--line)}
+tr:last-child td{border:0}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar{display:inline-block;width:110px;height:7px;border-radius:99px;background:#F1F0F4;vertical-align:middle;overflow:hidden;margin-right:8px}
+.bar i{display:block;height:100%;border-radius:99px;background:var(--c)}
+.bar i.ok{background:var(--ok)}
+.tag{display:inline-block;font-size:11px;font-weight:600;border-radius:99px;padding:2px 8px}
+.tag.ok{background:var(--ok-50);color:var(--ok)}.tag.bad{background:var(--bad-50);color:var(--bad)}.tag.warn{background:var(--warn-50);color:var(--warn)}.tag.c{background:var(--c-100);color:var(--c-ink)}
+.hb{display:flex;flex-direction:column;gap:10px}
+.hb div{display:grid;grid-template-columns:110px 1fr 56px;gap:8px;align-items:center;font-size:13px}
+.hb i{height:12px;border-radius:4px;background:var(--c);display:block}
+.hb em{font-style:normal;color:var(--ink3);font-size:12px;text-align:right}
+.cols{display:flex;align-items:flex-end;gap:10px;height:170px;padding-top:10px}
+.cols div{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;font-size:11px;color:var(--ink3);height:100%;justify-content:flex-end}
+.cols i{width:100%;max-width:42px;border-radius:6px 6px 2px 2px;background:var(--c-300);display:block}
+.cols div.cur i{background:var(--c)}
+.cols b{font-size:11px;color:var(--ink2);font-weight:600}
+.four{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.four div{border-radius:14px;padding:14px 16px;font-size:13px}
+.four h3{font-size:13px;margin-bottom:6px;display:flex;gap:6px;align-items:center}
+.four ul{margin-left:16px;color:var(--ink2)}
+.f1{background:#EAF6EE}.f2{background:#FDF4E3}.f3{background:#FDEEE6}.f4{background:var(--c-50)}
+.src{font-size:12px;color:var(--ink3);margin:16px 0 0;display:flex;gap:6px;align-items:center}
+.foot{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--ink3);padding:26px 32px 34px}
+.foot b{color:#301667}
+/* page à partager */
+.cover{background:var(--c);color:#fff;padding:46px 0 40px;position:relative;overflow:hidden}
+.cover::after{content:"";position:absolute;right:-60px;top:-60px;width:260px;height:260px;border-radius:50%;background:rgba(255,255,255,.08)}
+.cover h1{font-size:38px;font-weight:600;max-width:640px;line-height:1.15}
+.cover p{opacity:.9;margin-top:10px;max-width:560px;font-size:15px}
+.cover .btn{margin-top:18px;border:0;color:var(--c-ink);font-weight:600}
+.prods{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.prod{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.prod .ph{height:120px;background:var(--c-50);display:grid;place-items:center}
+.prod .ph svg{width:56px;height:56px}
+.prod .tx{padding:12px 14px}
+.prod b{display:block;font-size:14px}
+.prod small{color:var(--ink3);font-size:12px}
+.prod .pr{display:flex;align-items:center;justify-content:space-between;margin-top:8px}
+.prod .pr .num{font-size:17px;font-weight:600}
+.jobs{display:flex;flex-direction:column;gap:10px}
+.job{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.job .ic{width:42px;height:42px;border-radius:12px;background:var(--c-50);display:grid;place-items:center;flex:none}
+.job b{font-size:15px;display:block}.job small{color:var(--ink2)}
+.job .btn{margin-left:auto}
+.tabs{display:flex;gap:6px;margin:20px 0 12px;flex-wrap:wrap}
+.tabs span{border-radius:99px;padding:6px 14px;font-size:13px;background:#fff;border:1px solid var(--line)}
+.tabs span.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.why{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.why div{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px}
+.why b{display:block;margin:8px 0 4px}.why p{font-size:13px;color:var(--ink2)}
+.why .ic{width:36px;height:36px;border-radius:10px;background:var(--c-50);display:grid;place-items:center}
+/* formulaire et mini-app (pensés téléphone d'abord) */
+.narrow{max-width:560px;margin:0 auto;padding:0 16px}
+.ftop{background:var(--c);color:#fff;padding:22px 0 54px}
+.ftop .logo{height:40px;background:#fff;border-radius:10px;padding:4px 8px;display:inline-flex;margin-bottom:14px}
+.ftop h1{font-size:24px;font-weight:600}.ftop p{opacity:.9;font-size:14px;margin-top:4px}
+.fcard{background:#fff;border-radius:18px;padding:18px;margin-top:-38px;box-shadow:0 10px 30px rgba(22,20,31,.08);display:flex;flex-direction:column;gap:14px}
+.steps{display:flex;gap:6px}.steps i{flex:1;height:4px;border-radius:99px;background:var(--line)}.steps i.on{background:var(--c)}
+.fld label{display:block;font-size:13px;font-weight:600;margin-bottom:6px}
+.fld .in{border:1px solid #DCDAE3;border-radius:12px;padding:12px 14px;min-height:46px;color:var(--ink);display:flex;align-items:center;gap:8px;background:#fff}
+.fld .in.ph{color:var(--ink3)}
+.fld .in.ta{min-height:92px;align-items:flex-start}
+.fld .in.dd{justify-content:space-between}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opts span{border:1px solid #DCDAE3;border-radius:99px;padding:9px 14px;font-size:13px;min-height:40px;display:inline-flex;align-items:center}
+.opts span.on{border-color:var(--c);background:var(--c-50);color:var(--c-ink);font-weight:600}
+.up2{border:1.5px dashed var(--c-300);border-radius:12px;padding:16px;display:flex;gap:10px;align-items:center;color:var(--ink2);background:var(--c-50)}
+.big{width:100%;justify-content:center;padding:14px;border-radius:14px;font-size:15px}
+.note{font-size:12px;color:var(--ink3);text-align:center}
+.done{background:#fff;border-radius:18px;padding:20px;margin-top:14px;display:flex;gap:12px;align-items:center;border:1px solid var(--line)}
+.done .ok{width:40px;height:40px;border-radius:50%;background:var(--ok-50);display:grid;place-items:center;flex:none}
+.items{display:flex;flex-direction:column}
+.it{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
+.it:last-child{border:0}
+.it .th{width:44px;height:44px;border-radius:10px;background:var(--c-50);display:grid;place-items:center;flex:none}
+.it b{display:block;font-size:14px}.it small{color:var(--ink3);font-size:12px}
+.qty{margin-left:auto;display:flex;align-items:center;gap:10px}
+.qty span{width:36px;height:36px;border-radius:10px;border:1px solid var(--line);display:grid;place-items:center;font-size:18px}
+.qty span.p{background:var(--c);border-color:var(--c);color:#fff}
+.qty b{min-width:20px;text-align:center}
+.chk{width:26px;height:26px;border-radius:8px;border:2px solid #DCDAE3;margin-left:auto;flex:none;display:grid;place-items:center}
+.chk.on{background:var(--ok);border-color:var(--ok)}
+.tot{display:flex;justify-content:space-between;align-items:center;padding-top:6px}
+.tot .num{font-size:22px;font-weight:600}
+.sig{height:90px;border:1.5px dashed #DCDAE3;border-radius:12px;position:relative}
+.sig svg{position:absolute;left:30px;top:16px}
+.sig small{position:absolute;right:10px;bottom:6px;color:var(--ink3);font-size:11px}
+.score{display:flex;gap:6px}.score span{width:40px;height:40px;border-radius:10px;border:1px solid #DCDAE3;display:grid;place-items:center;font-weight:600}
+.score span.on{background:var(--c);border-color:var(--c);color:#fff}
+/* présentation */
+.slide{padding:64px 0;border-bottom:1px solid var(--line);background:#fff}
+.slide.c{background:var(--c);color:#fff;border:0}
+.slide .k{font-size:12px;letter-spacing:.12em;font-weight:600;color:var(--c);text-transform:uppercase}
+.slide.c .k{color:#fff;opacity:.8}
+.slide h1{font-size:46px;font-weight:600;line-height:1.1;max-width:760px;margin-top:10px}
+.slide h2{font-size:30px;font-weight:600;margin:8px 0 24px;max-width:760px}
+.slide .lede{font-size:17px;opacity:.9;max-width:620px;margin-top:14px}
+.slide .logo-w{background:#fff;border-radius:12px;padding:8px 12px;display:inline-flex;height:52px;margin-bottom:34px}
+.slide .logo-w img{height:100%}
+.big3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.big3 div{border-top:3px solid var(--c);padding-top:14px}
+.big3 .num{font-size:44px;font-weight:600;display:block}
+.big3 small{color:var(--ink2);font-size:14px}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.facts>div{display:flex;gap:12px;background:var(--bg);border-radius:14px;padding:16px}
+.facts .n{width:30px;height:30px;border-radius:50%;background:var(--c);color:#fff;display:grid;place-items:center;font-weight:700;flex:none;font-size:13px}
+.facts b{display:block;margin-bottom:2px}.facts p{font-size:13px;color:var(--ink2)}
+.navdots{position:fixed;right:18px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:8px}
+.navdots i{width:8px;height:8px;border-radius:50%;background:#D4D2DC;display:block}.navdots i.on{background:var(--c)}
+@media (max-width:720px){
+ .wrap{padding:0 16px}.kpis{grid-template-columns:1fr 1fr}.grid2,.four,.why,.facts,.big3{grid-template-columns:1fr}
+ .prods{grid-template-columns:1fr 1fr}.hero h1{font-size:25px}.cover h1{font-size:28px}.brand .sp .btn span{display:none}
+ .slide h1{font-size:32px}.slide h2{font-size:24px}.navdots{display:none}.bar{width:60px}.hide-m{display:none}
+}
+</style></head><body><div style="position:fixed;left:50%;bottom:10px;transform:translateX(-50%);z-index:9;background:#16141F;color:#fff;font:600 11px Inter,sans-serif;padding:5px 12px;border-radius:99px;opacity:.85">Maquette Yelema, données fictives</div>
+<script>
+const IC=n=>`<img class="i" src="https://cdn.jsdelivr.net/npm/lucide-static@0.469.0/icons/${n}.svg" alt="">`;
+const ICc=(n,c)=>`<img class="i" style="width:20px;height:20px;opacity:1;filter:${c}" src="https://cdn.jsdelivr.net/npm/lucide-static@0.469.0/icons/${n}.svg" alt="">`;
+const BRANDS={
+ unifood:{nom:"Unifood",c:"#E5004A",logo:"img/unifood.png",dom:"unifood.yelema.ai"},
+ ecobank:{nom:"Ecobank",c:"#005B85",logo:"img/ecobank_mot.png",mot:1,dom:"ecobank.yelema.ai"}};
+const pct=(a,b)=>Math.round(a/b*100);
+const fr=n=>String(n).replace(".",",");
+/* ---------- blocs communs ---------- */
+function bar(b,o){return `<div class="brand"><div class="wrap"><span class="logo"><img src="${b.logo}"></span>${b.mot?'':`<b>${b.nom}</b>`}<span class="sp">${o?.btns??`<span class="btn">${IC("download")} <span>PDF</span></span><span class="btn pri">${IC("share-2")} <span>Partager</span></span>`}</span></div></div>`}
+function foot(b,ex){return `<div class="wrap foot"><span>Préparé par ${ex} pour ${b.nom}</span><span>Powered by <b>Yelema</b></span></div>`}
+function kpis(k){return `<div class="kpis">${k.map(x=>`<div class="kpi"><small>${x[0]}</small><span class="num">${x[1]}</span><em class="${x[3]||'up'}">${x[2]}</em></div>`).join("")}</div>`}
+function hbars(t,a,u){const m=Math.max(...a.map(x=>x[1]));return `<div class="card"><h2>${t}</h2><div class="hb">${a.map(x=>`<div><span>${x[0]}</span><i style="width:${x[1]/m*100}%"></i><em>${fr(x[1])}${u}</em></div>`).join("")}</div></div>`}
+function cols(t,a,u){const m=Math.max(...a.map(x=>x[1]));return `<div class="card"><h2>${t}</h2><div class="cols">${a.map((x,i)=>`<div class="${i==a.length-1?'cur':''}"><b>${fr(x[1])}${u}</b><i style="height:${x[1]/m*120}px"></i>${x[0]}</div>`).join("")}</div></div>`}
+function four(f){const h=[["Apprentissages","lightbulb","f1"],["Défis","mountain","f2"],["Blocages","octagon-alert","f3"],["Prochaines étapes","circle-arrow-right","f4"]];
+ return `<div class="four">${h.map((x,i)=>`<div class="${x[2]}"><h3>${IC(x[1])} ${x[0]}</h3><ul>${f[i].map(l=>`<li>${l}</li>`).join("")}</ul></div>`).join("")}</div>`}
+/* ---------- 1. tableau de suivi ---------- */
+function suivi(b,d){return bar(b)+`<div class="hero"><div class="wrap"><h1>${d.titre}</h1><p>${d.pour}</p>
+ <div class="meta"><span class="chip"><img class="av" src="img/${d.exk}.jpg"> Préparé par ${d.ex}</span><span class="chip">${IC("refresh-cw")} ${d.maj}</span><span class="chip">${IC("lock")} ${b.dom}/c/${d.slug}</span></div>
+ <div class="seg">${d.seg.map((s,i)=>`<span class="${i==0?'on':''}">${s}</span>`).join("")}</div></div></div>
+ <div class="wrap"><div class="sec">${kpis(d.kpis)}</div>
+ <div class="sec grid2"><div class="card"><h2>${d.tab.t}</h2><table><tr>${d.tab.h.map((h,i)=>`<th class="${i>=d.tab.nfrom?'n':''} ${d.tab.hm?.includes(i)?'hide-m':''}">${h}</th>`).join("")}</tr>${d.tab.r.map(r=>`<tr>${r.map((c,i)=>`<td class="${i>=d.tab.nfrom?'n':''} ${d.tab.hm?.includes(i)?'hide-m':''}">${c}</td>`).join("")}</tr>`).join("")}</table></div>
+ ${hbars(d.hb.t,d.hb.a,d.hb.u)}</div>
+ <div class="sec">${cols(d.co.t,d.co.a,d.co.u)}</div>
+ <div class="sec">${four(d.four)}</div>
+ <p class="src">${IC("database")} ${d.src}</p></div>`+foot(b,d.ex)}
+const prog=(v,o)=>`<span class="bar"><i class="${pct(v,o)>=85?'ok':''}" style="width:${Math.min(100,pct(v,o))}%"></i></span>${pct(v,o)} %`;
+const SUIVI={
+ unifood:{titre:"Suivi des commerciaux",pour:"Ventes, objectifs et visites de l'équipe commerciale",ex:"Kouassi",exk:"kouassi",maj:"À jour ce matin à 7 h",slug:"suivi-commerciaux",seg:["Novembre","Trimestre","Année","Toutes les zones"],
+  kpis:[["Ventes du mois","194 M F","+12 % sur octobre"],["Objectif atteint","83 %","233 M F visés","flat"],["Visites clients","412","9 par jour et par commercial"],["Clients sans commande","27","depuis plus de 30 jours","down"]],
+  tab:{t:"Par commercial",h:["Commercial","Zone","Ventes","Objectif"],nfrom:2,hm:[1],r:[["Konan Aya","Abidjan Nord","48,2 M F",prog(48.2,52)],["Traoré Ibrahim","Abidjan Sud","44,9 M F",prog(44.9,50)],["Kouadio Marc","Bouaké","31,5 M F",prog(31.5,40)],["Diallo Fanta","San-Pédro","29,8 M F",prog(29.8,32)],["Yao Serge","Yamoussoukro","21,4 M F",prog(21.4,35)],["Coulibaly Awa","Korhogo","18,6 M F",prog(18.6,24)]]},
+  hb:{t:"Ventes par gamme",a:[["Huiles",71],["Riz",54],["Pâtes",33],["Biscuits",21],["Boissons",15]],u:" M"},
+  co:{t:"Ventes des 6 derniers mois",a:[["Juin",151],["Juil.",162],["Août",148],["Sept.",170],["Oct.",173],["Nov.",194]],u:""},
+  four:[["Les visites du mardi rapportent le plus","Les grossistes commandent après une dégustation"],["Korhogo loin de l'objectif","Deux commerciaux en congé fin novembre"],["Ruptures de riz 25 kg à Bouaké"],["Relancer les 27 clients sans commande","Point avec Yao lundi"]],
+  src:"Fichier « Ventes 2026 » et « Objectifs T4 » du Drive Unifood, relus chaque matin à 7 h"},
+ ecobank:{titre:"Suivi des recrutements",pour:"Postes ouverts, candidats et délais de la direction des ressources humaines",ex:"Adjoua",exk:"adjoua",maj:"À jour ce matin à 8 h",slug:"suivi-recrutements",seg:["Novembre","Trimestre","Année","Toutes les directions"],
+  kpis:[["Postes ouverts","14","dont 5 urgents","flat"],["Candidatures","486","+21 % sur octobre"],["Délai pour pourvoir","38 jours","-6 jours sur le trimestre"],["Offres refusées","3","sur 11 proposées","down"]],
+  tab:{t:"Par poste",h:["Poste","Direction","Candidats","Avancement"],nfrom:2,hm:[1],r:[["Chargé de clientèle PME","Banque commerciale","92",'<span class="tag ok">Offre envoyée</span>'],["Analyste crédit","Risques","64",'<span class="tag c">Entretiens</span>'],["Auditeur interne","Audit","38",'<span class="tag c">Entretiens</span>'],["Développeur mobile","Digital","71",'<span class="tag warn">Tri des CV</span>'],["Juriste conformité","Conformité","27",'<span class="tag warn">Tri des CV</span>'],["Caissier principal","Réseau d'agences","104",'<span class="tag bad">En retard</span>']]},
+  hb:{t:"D'où viennent les candidats",a:[["LinkedIn",41],["Site carrière",27],["Cooptation",16],["Écoles",10],["Cabinets",6]],u:" %"},
+  co:{t:"Embauches des 6 derniers mois",a:[["Juin",6],["Juil.",9],["Août",4],["Sept.",11],["Oct.",8],["Nov.",7]],u:""},
+  four:[["La cooptation donne les meilleurs profils","Un entretien vidéo court accélère le tri"],["Profils digitaux rares","Salaires du marché en hausse"],["Caissier principal : jury pas encore réuni"],["Ouvrir le poste de juriste aux écoles","Réunir le jury mardi"]],
+  src:"Tableur « Recrutements 2026 » de la DRH, relu chaque matin à 8 h"}};
+/* ---------- 2. page à partager ---------- */
+const svgBox=c=>`<svg viewBox="0 0 48 48" fill="none" stroke="var(--c)" stroke-width="2"><rect x="10" y="12" width="28" height="28" rx="4" fill="var(--c-100)"/><path d="M10 20h28M18 12v8M30 12v8"/></svg>`;
+function page(b,d){return bar(b,{btns:`<span class="btn pri">${IC(d.cta[1])} <span>${d.cta[0]}</span></span>`})+`<div class="cover"><div class="wrap"><h1>${d.titre}</h1><p>${d.sous}</p><span class="btn">${IC(d.cta2[1])} ${d.cta2[0]}</span></div></div>
+ <div class="wrap"><div class="tabs">${d.tabs.map((t,i)=>`<span class="${i==0?'on':''}">${t}</span>`).join("")}</div>${d.corps}
+ <div class="sec card" style="display:flex;gap:14px;align-items:center;margin-bottom:6px"><img src="img/${d.exk}.jpg" style="width:40px;height:40px;border-radius:50%;object-fit:cover"><div><b>${d.contact[0]}</b><div style="color:var(--ink2);font-size:13px">${d.contact[1]}</div></div><span class="btn pri" style="margin-left:auto">${IC(d.cta[1])} ${d.cta[0]}</span></div></div>`+foot(b,d.ex)}
+const PAGE={
+ unifood:{titre:"Nos produits, prix de gros",sous:"Catalogue des distributeurs, prix valables du 17 au 30 novembre 2026",cta:["Commander","message-circle"],cta2:["Télécharger en PDF","download"],ex:"Fatima",exk:"fatima",tabs:["Tout","Huiles","Riz","Pâtes","Biscuits","Boissons"],
+  corps:`<div class="prods">${[["Huile de palme raffinée","Carton de 12 x 1 L","15 600 F","ok","En stock"],["Riz parfumé","Sac de 25 kg","16 900 F","ok","En stock"],["Riz brisé","Sac de 50 kg","24 500 F","warn","Stock faible"],["Spaghetti","Carton de 20 x 500 g","9 800 F","ok","En stock"],["Biscuits fourrés","Carton de 48 paquets","7 200 F","ok","En stock"],["Huile d'arachide","Bidon de 5 L","8 400 F","ok","En stock"],["Coquillettes","Carton de 20 x 500 g","9 600 F","bad","Rupture"],["Jus de bissap","Pack de 12 x 33 cl","4 900 F","ok","En stock"]].map(p=>`<div class="prod"><div class="ph">${svgBox()}</div><div class="tx"><b>${p[0]}</b><small>${p[1]}</small><div class="pr"><span class="num">${p[2]}</span><span class="tag ${p[3]}">${p[4]}</span></div></div></div>`).join("")}</div>`,
+  contact:["Une question sur les prix ?","Le service commercial répond du lundi au samedi, de 8 h à 18 h."]},
+ ecobank:{titre:"Rejoignez nos équipes en Côte d'Ivoire",sous:"14 postes ouverts à Abidjan et dans le réseau d'agences",cta:["Postuler","send"],cta2:["Voir les postes","arrow-down"],ex:"Adjoua",exk:"adjoua",tabs:["Tous les postes","Banque commerciale","Risques","Digital","Agences"],
+  corps:`<div class="jobs">${[["Chargé de clientèle PME","Banque commerciale, Abidjan Plateau, CDI","briefcase"],["Analyste crédit","Risques, Abidjan Plateau, CDI","chart-line"],["Développeur mobile","Digital, Abidjan Marcory, CDI","smartphone"],["Caissier principal","Réseau d'agences, Bouaké, CDI","landmark"]].map(j=>`<div class="job"><span class="ic">${ICc(j[2],"none")}</span><div><b>${j[0]}</b><small>${j[1]}</small></div><span class="btn">${IC("arrow-right")} <span class="hide-m">Voir le poste</span></span></div>`).join("")}</div>
+  <div class="sec why">${[["graduation-cap","Se former","Un parcours de formation dès la première année."],["globe","Bouger","Des postes ouverts dans plus de 30 pays du groupe."],["heart-handshake","Être accompagné","Un parrain pour chaque nouvel arrivant."]].map(w=>`<div><span class="ic">${ICc(w[0],"none")}</span><b>${w[1]}</b><p>${w[2]}</p></div>`).join("")}</div>`,
+  contact:["Une question sur un poste ?","L'équipe recrutement répond sous 48 heures."]}};
+/* ---------- 3. formulaire ---------- */
+function form(b,d,ok){return `<div class="ftop"><div class="narrow"><span class="logo"><img src="${b.logo}"></span><h1>${d.titre}</h1><p>${d.sous}</p></div></div>
+ <div class="narrow">${ok?`<div class="fcard"><div class="done" style="border:0;padding:0;margin:0"><span class="ok">${ICc("check","invert(45%) sepia(60%) saturate(600%) hue-rotate(95deg)")}</span><div><b>${d.ok[0]}</b><div style="color:var(--ink2);font-size:13px">${d.ok[1]}</div></div></div></div>`:
+ `<div class="fcard"><div class="steps">${[1,2,3].map(i=>`<i class="${i<=d.step?'on':''}"></i>`).join("")}</div>${d.champs.map(c=>`<div class="fld"><label>${c[0]}</label>${c[1]}</div>`).join("")}
+ <span class="btn pri big">${d.envoi}</span><p class="note">${d.note}</p></div>`}</div>`+`<div class="narrow">`+foot(b,d.ex).replace('class="wrap foot"','class="foot" style="padding:26px 0 34px"')+`</div>`}
+const inp=(t,ph,c)=>`<div class="in ${ph?'ph':''} ${c||''}">${t}</div>`;
+const dd=t=>`<div class="in dd">${t} ${IC("chevron-down")}</div>`;
+const opts=(a,o)=>`<div class="opts">${a.map((x,i)=>`<span class="${i==o?'on':''}">${x}</span>`).join("")}</div>`;
+const FORM={
+ unifood:{titre:"Signaler un problème",sous:"Un produit abîmé, une livraison incomplète ? Nous vous répondons sous 24 heures.",ex:"Awa",step:2,
+  champs:[["Votre commande",inp("CMD-2026-11-0482")],["Le problème",opts(["Produit abîmé","Il manque des cartons","Retard","Autre"],0)],["Le produit",dd("Huile de palme raffinée, carton de 12 x 1 L")],["Ce qui s'est passé",inp("Trois bouteilles cassées dans le carton à la livraison de ce matin.",0,"ta")],["Une photo",`<div class="up2">${IC("camera")} Prendre une photo ou choisir un fichier</div>`]],
+  envoi:"Envoyer",note:"Vous recevez un numéro de suivi par SMS.",ok:["Demande R-1093 reçue","Awa vous répond avant demain 12 h, par SMS au 07 •• •• 42 18."]},
+ ecobank:{titre:"Demande de congé",sous:"Votre responsable reçoit la demande et vous répond dans l'application.",ex:"Fatou",step:2,
+  champs:[["Type de congé",opts(["Congé annuel","Événement familial","Maladie","Sans solde"],0)],["Du",inp("Lundi 22 décembre 2026")],["Au",inp("Vendredi 2 janvier 2027")],["Jours ouvrés",`<div class="in" style="justify-content:space-between"><b>9 jours</b><span class="tag ok">Solde après : 13 jours</span></div>`],["Qui vous remplace",dd("Koné Mariam, chargée de clientèle")]],
+  envoi:"Envoyer à mon responsable",note:"Votre solde est mis à jour dès l'accord.",ok:["Demande envoyée","Votre responsable a reçu la demande. Vous serez prévenu dans l'application."]}};
+/* ---------- 4. mini-app ---------- */
+function app(b,d){return `<div class="ftop" style="padding-bottom:20px"><div class="narrow" style="display:flex;align-items:center;gap:10px"><span class="logo" style="margin:0">${`<img src="${b.logo}">`}</span><div><b style="font-size:17px">${d.titre}</b><div style="opacity:.85;font-size:13px">${d.sous}</div></div></div></div>
+ <div class="narrow"><div class="fcard" style="margin-top:14px">${d.haut}<div class="items">${d.items.map(d.ligne).join("")}</div>${d.bas}</div></div>`+`<div class="narrow">`+foot(b,d.ex).replace('class="wrap foot"','class="foot" style="padding:26px 0 34px"')+`</div>`}
+const APP={
+ unifood:{titre:"Prise de commande",sous:"Konan Aya, Abidjan Nord",ex:"Kouassi",
+  haut:`<div class="fld"><label>Client</label>${dd("Boutique Sainte Rita, Adjamé")}</div><div class="seg" style="margin:0">${["Tout","Huiles","Riz","Pâtes"].map((s,i)=>`<span class="${i==0?'on':''}">${s}</span>`).join("")}</div>`,
+  items:[["Huile de palme 12 x 1 L","15 600 F",4],["Riz parfumé 25 kg","16 900 F",6],["Spaghetti 20 x 500 g","9 800 F",2],["Biscuits fourrés 48 paquets","7 200 F",0]],
+  ligne:x=>`<div class="it"><span class="th">${svgBox()}</span><div><b>${x[0]}</b><small>${x[1]}</small></div><div class="qty"><span>−</span><b>${x[2]}</b><span class="p">+</span></div></div>`,
+  bas:`<div class="tot"><span style="color:var(--ink2)">12 cartons et sacs</span><span class="num">183 400 F</span></div><span class="btn pri big">${IC("send")} Envoyer la commande</span><p class="note">Fonctionne sans réseau, part dès le retour de la connexion.</p>`},
+ ecobank:{titre:"Grille d'entretien",sous:"Analyste crédit, candidate : N'Guessan Laure",ex:"Adjoua",
+  haut:`<div class="steps"><i class="on"></i><i class="on"></i><i></i></div>`,
+  items:[["Analyse financière","Lecture d'un bilan, ratios",4],["Connaissance du risque","Garanties, scoring",3],["Communication","Clarté, écoute",5],["Esprit d'équipe","Exemples concrets",4]],
+  ligne:x=>`<div class="it" style="flex-wrap:wrap"><div><b>${x[0]}</b><small>${x[1]}</small></div><div class="score" style="margin-left:auto">${[1,2,3,4,5].map(n=>`<span class="${n==x[2]?'on':''}">${n}</span>`).join("")}</div></div>`,
+  bas:`<div class="fld"><label>Avis du jury</label>${inp("Très bonne lecture des bilans, à former sur les garanties.",0,"ta")}</div><div class="tot"><span style="color:var(--ink2)">Note moyenne</span><span class="num">4 / 5</span></div><span class="btn pri big">${IC("check")} Valider l'entretien</span>`}};
+/* ---------- 5. présentation en ligne ---------- */
+function pres(b,d){return `<div class="navdots">${d.s.map((_,i)=>`<i class="${i==0?'on':''}"></i>`).join("")}</div>
+ <section class="slide c"><div class="wrap"><span class="logo-w"><img src="${b.logo}"></span><div class="k">${d.k}</div><h1>${d.titre}</h1><p class="lede">${d.lede}</p></div></section>
+ ${d.s.map((s,i)=>`<section class="slide"><div class="wrap"><div class="k">${String(i+1).padStart(2,"0")}  ${s[0]}</div><h2>${s[1]}</h2>${s[2]}</div></section>`).join("")}`+foot(b,d.ex)}
+const big3=a=>`<div class="big3">${a.map(x=>`<div><span class="num">${x[0]}</span><small>${x[1]}</small></div>`).join("")}</div>`;
+const facts=a=>`<div class="facts">${a.map((x,i)=>`<div><span class="n">${i+1}</span><div><b>${x[0]}</b><p>${x[1]}</p></div></div>`).join("")}</div>`;
+const PRES={
+ unifood:{k:"Rapport aux actionnaires",titre:"Octobre 2026 : le meilleur mois de l'année",lede:"Les ventes, la trésorerie et les décisions du mois, préparées par Djénéba pour le conseil d'administration.",ex:"Djénéba",
+  s:[["Les chiffres","Les ventes passent la barre des 170 millions",big3([["173 M F","de ventes en octobre, +2 % sur septembre"],["31 %","de marge brute, stable"],["212 M F","de trésorerie disponible"]])],
+   ["Ce qui a marché","Trois faits marquants",facts([["Nouveau grossiste à San-Pédro","Premières commandes livrées le 14 octobre."],["Riz parfumé 25 kg","Meilleure vente du mois, devant l'huile."],["Livraisons à l'heure","94 % des commandes livrées le jour prévu."],["Recrutement","Deux commerciaux arrivés à Bouaké."]])],
+   ["La suite","Ce que nous ferons en novembre",facts([["Relancer 27 clients","Sans commande depuis plus de 30 jours."],["Sécuriser le riz","Deuxième fournisseur à valider avant le 30."]])]]},
+ ecobank:{k:"Rapport RH du trimestre",titre:"T3 2026 : 34 recrues, un délai d'embauche en baisse",lede:"Effectifs, recrutements et formation de la direction des ressources humaines, préparé par Fatou pour le comité de direction.",ex:"Fatou",
+  s:[["Les chiffres","Le délai pour pourvoir un poste passe sous 40 jours",big3([["34","recrues sur le trimestre"],["38 jours","pour pourvoir un poste, -6 jours"],["92 %","des recrues encore là après 3 mois"]])],
+   ["Ce qui a marché","Trois faits marquants",facts([["Site carrière","27 % des candidatures viennent désormais du site."],["Cooptation","Une prime de cooptation lancée en août."],["Formation","120 collaborateurs formés au nouveau logiciel de crédit."],["Agences","Bouaké et Korhogo au complet."]])],
+   ["La suite","Ce que nous ferons au T4",facts([["Profils digitaux","Partenariat avec deux écoles d'ingénieurs."],["Entretiens annuels","Campagne ouverte le 1er décembre."]])]]}};
+/* ---------- aiguillage ---------- */
+const [bk,ty,v]=(location.hash.slice(1)||"unifood/suivi").split("/");const B=BRANDS[bk];
+document.documentElement.style.setProperty("--c",B.c);document.title=`${B.nom}, création`;
+document.body.insertAdjacentHTML("beforeend",ty=="suivi"?suivi(B,SUIVI[bk]):ty=="page"?page(B,PAGE[bk]):ty=="form"?form(B,FORM[bk],v=="ok"):ty=="app"?app(B,APP[bk]):pres(B,PRES[bk]));
+</script></body></html>
